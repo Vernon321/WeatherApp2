@@ -216,6 +216,11 @@ class MainActivity : AppCompatActivity() {
                         imageHolder?.background = (resources.getDrawable(R.drawable.forest_cloudy))
                     }
 
+                    if (obj3["main"].toString() == "Clear") {
+                        maincont?.setBackgroundColor(Color.parseColor("#54717A"))
+                        imageHolder?.background = (resources.getDrawable(R.drawable.forest_cloudy))
+                    }
+
                     if (obj3["main"].toString() == "Rainy") {
                         maincont?.setBackgroundColor(Color.parseColor("#57575D"))
                         imageHolder?.background = (resources.getDrawable(R.drawable.forest_rainy))
