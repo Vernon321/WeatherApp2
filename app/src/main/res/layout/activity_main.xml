@@ -4,7 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/maincontainer"
     tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/imageHolder"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@drawable/forest_cloudy">
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_below="@+id/imageHolder" />
 
     <TextView
         android:id="@+id/txtViewF1Temp"
@@ -15,6 +37,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="218dp"
         android:layout_marginTop="243dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -29,6 +52,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="21dp"
         android:layout_marginTop="244dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -43,6 +67,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="21dp"
         android:layout_marginTop="307dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -57,6 +82,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="22dp"
         android:layout_marginTop="374dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -71,6 +97,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="22dp"
         android:layout_marginTop="437dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -86,6 +113,7 @@
         android:layout_marginStart="23dp"
         android:layout_marginTop="499dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="TextView"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -100,6 +128,7 @@
         android:layout_marginStart="220dp"
         android:layout_marginTop="498dp"
         android:gravity="center"
+        android:textColor="@color/white"
         android:text="TextView"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -113,6 +142,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="219dp"
         android:layout_marginTop="436dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -127,6 +157,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="219dp"
         android:layout_marginTop="373dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -141,6 +172,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="218dp"
         android:layout_marginTop="306dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="20dp"
@@ -153,6 +185,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
         android:layout_marginStart="170dp"
         android:layout_marginTop="183dp"
         android:text="TextView"
@@ -167,6 +200,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="38dp"
+        android:textColor="@color/white"
         android:layout_marginTop="182dp"
         android:text="TextView"
         android:textSize="15dp"
@@ -181,6 +215,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="37dp"
         android:layout_marginTop="206dp"
+        android:textColor="@color/white"
         android:text="Min"
         android:textSize="15dp"
         android:textStyle="bold" />
@@ -194,6 +229,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="170dp"
         android:layout_marginTop="205dp"
+        android:textColor="@color/white"
         android:text="Current"
         android:textSize="15dp"
         android:textStyle="bold" />
@@ -207,6 +243,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="315dp"
         android:layout_marginTop="204dp"
+        android:textColor="@color/white"
         android:text="Max"
         android:textSize="15dp"
         android:textStyle="bold" />
@@ -220,6 +257,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="314dp"
         android:layout_marginTop="182dp"
+        android:textColor="@color/white"
         android:text="TextView"
         android:textSize="14sp"
         android:textStyle="bold" />
@@ -232,9 +270,10 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
-        android:gravity="center"
         android:layout_marginBottom="40dp"
         android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textColor="@color/white"
         android:text="Get temperature here"
         android:textSize="25dp"
         android:textStyle="bold" />
@@ -258,6 +297,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="120dp"
         android:layout_marginTop="107dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="TextView"
         android:textSize="25dp"

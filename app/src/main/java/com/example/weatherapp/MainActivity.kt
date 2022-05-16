@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.location.LocationManager
 import android.os.Build
@@ -12,11 +13,10 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         // weather url to get JSON
         var weather_url1 = ""
         var weather_url2 = ""
+    var maincont : RelativeLayout? = null
+    var imageHolder : RelativeLayout? = null
         private lateinit var btVar1: Button
         // api id for url
         var api_id1 = "f899e2146138cfa4ec1ea578f2a46c17"
@@ -42,7 +44,8 @@ class MainActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
-
+            maincont = findViewById<RelativeLayout>(R.id.maincontainer)
+            imageHolder = findViewById<RelativeLayout>(R.id.imageHolder)
             mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 //            btVar1 = findViewById(R.id.btVar1)
 //            btVar1.setOnClickListener {
@@ -161,6 +164,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        @SuppressLint("WrongViewCast")
         fun getTemp(weather_url1: String) {
             // Instantiate the RequestQueue.
             val queue = Volley.newRequestQueue(this)
@@ -171,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             // Request a string response
             // from the provided URL.
             val stringReq = StringRequest(Request.Method.GET, url,
-                Response.Listener<String> { response ->
+                { response ->
                     Log.e("lat", response.toString())
 
 
@@ -207,6 +211,21 @@ class MainActivity : AppCompatActivity() {
                     val F1TempCel3 = F1TempDbl3.toInt() - 273.15
                     val F1TemMax = F1TempCel3.toString().substringBefore(".") + "°C"
 
+                    if (obj3["main"].toString() == "Clouds") {
+                        maincont?.setBackgroundColor(Color.parseColor("#54717A"))
+                        imageHolder?.background = (resources.getDrawable(R.drawable.forest_cloudy))
+                    }
+
+                    if (obj3["main"].toString() == "Rainy") {
+                        maincont?.setBackgroundColor(Color.parseColor("#57575D"))
+                        imageHolder?.background = (resources.getDrawable(R.drawable.forest_rainy))
+                    }
+
+                    if (obj3["main"].toString() == "Sunny") {
+                        maincont?.setBackgroundColor(Color.parseColor("#47AB2F"))
+                        imageHolder?.background = (resources.getDrawable(R.drawable.forest_sunny))
+                    }
+
                     // name using getString() function
                     findViewById<TextView>(R.id.textViewTemp).text = F1TemMain.toString()
                     findViewById<TextView>(R.id.txtViewWeather).text = obj3["main"].toString()
@@ -216,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 
                 },
                 // In case of any error
-                Response.ErrorListener { findViewById<TextView>(R.id.textViewTemp)!!.text = "That didn't work!" })
+                { findViewById<TextView>(R.id.textViewTemp)!!.text = "That didn't work!" })
             queue.add(stringReq)
         }
 
